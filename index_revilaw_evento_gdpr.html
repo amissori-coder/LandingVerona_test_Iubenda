@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Generation Business - Iscrizione Evento</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 8px; margin-top: 4px; }
+    .consent { margin-top: 18px; padding: 12px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+    .checkbox { margin-top: 12px; }
+    .submit { margin-top: 20px; padding: 12px 24px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Richiesta di Partecipazione</h1>
+  <form method="POST" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" target="sheet_sink">
+    <label for="nome">Nome e Cognome</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="azienda">Azienda / Studio</label>
+    <input type="text" id="azienda" name="azienda" required>
+
+    <label for="citta">Città</label>
+    <input type="text" id="citta" name="citta" required>
+
+    <label for="ruolo">Ruolo</label>
+    <input type="text" id="ruolo" name="ruolo" required>
+
+    <label for="partita_iva">Partita IVA</label>
+    <input type="text" id="partita_iva" name="partita_iva" required>
+
+    <label for="codice_fiscale">Codice Fiscale</label>
+    <input type="text" id="codice_fiscale" name="codice_fiscale" required>
+
+    <label for="fatturato">Fatturato Aziendale</label>
+    <select id="fatturato" name="fatturato" required>
+      <option value="">Seleziona</option>
+      <option value="INFERIORE A 5 MILIONI">INFERIORE A 5 MILIONI</option>
+      <option value="SUPERIORE A 5 MILIONI">SUPERIORE A 5 MILIONI</option>
+      <option value="SUPERIORE A 50 MILIONI">SUPERIORE A 50 MILIONI</option>
+      <option value="SUPERIORE A 100 MILIONI">SUPERIORE A 100 MILIONI</option>
+    </select>
+
+    <label for="dipendenti">Numero Dipendenti</label>
+    <select id="dipendenti" name="dipendenti" required>
+      <option value="">Seleziona</option>
+      <option value="MENO DI 20">MENO DI 20</option>
+      <option value="PIÙ DI 20">PIÙ DI 20</option>
+      <option value="PIÙ DI 50">PIÙ DI 50</option>
+      <option value="PIÙ DI 250">PIÙ DI 250</option>
+    </select>
+
+    <label for="note">Note (opzionale)</label>
+    <textarea id="note" name="note" placeholder="Richieste o informazioni aggiuntive"></textarea>
+
+    <!-- Honeypot -->
+    <input type="text" name="website" style="display:none">
+
+    <div class="consent checkbox">
+      <label>
+        <input type="checkbox" name="privacy_ack" value="1" required>
+        Dichiaro di aver preso visione dell’<a href="https://www.revilaw.it/privacy-policy/" target="_blank">Informativa Privacy</a> e acconsento al trattamento dei miei dati per finalità organizzative e per ricevere i materiali post-evento.
+      </label>
+    </div>
+
+    <div class="consent checkbox">
+      <label>
+        <input type="checkbox" name="consenso_marketing" value="1">
+        Acconsento alla comunicazione dei miei dati agli Sponsor dell’evento (nome, email, azienda, ruolo, ecc.) per ricevere materiali post-evento e comunicazioni promozionali da parte loro. Il consenso è facoltativo e revocabile.
+      </label>
+    </div>
+
+    <button type="submit" class="submit">Invia Richiesta</button>
+  </form>
+
+  <!-- Iframe invisibile -->
+  <iframe name="sheet_sink" style="display:none;width:0;height:0;border:0"></iframe>
+</body>
+</html>
